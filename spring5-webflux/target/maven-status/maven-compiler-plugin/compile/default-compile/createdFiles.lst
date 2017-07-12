@@ -1,0 +1,6 @@
+com\spring5\webflux\Routes.class
+com\spring5\webflux\User.class
+com\spring5\webflux\UserHandler.class
+com\spring5\webflux\UserRepository.class
+com\spring5\webflux\HttpServerConfig.class
+com\spring5\webflux\Spring5ReactiveApplication.class
