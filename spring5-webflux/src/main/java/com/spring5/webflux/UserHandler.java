@@ -20,21 +20,21 @@ import reactor.core.publisher.Mono;
 @Service
 public class UserHandler {
 
-    @Autowired
-    private UserReactiveRepository userRep;
+    //@Autowired
+    UserReactiveRepository userReactiveRepository;
 
     public Mono<ServerResponse> handleGetUsers(ServerRequest request) {
-        return ServerResponse.ok().body(userRep.findAll(), User.class);
+        return ServerResponse.ok().body(userReactiveRepository.findAll(), User.class);
     }
 
     public Mono<ServerResponse> handleGetUserById(ServerRequest request) {
-        return userRep.findOne(Long.valueOf(request.pathVariable("id")))
+        return userReactiveRepository.findOne(Long.valueOf(request.pathVariable("id")))
                 .flatMap(user -> ServerResponse.ok().body(Mono.just(user), User.class))
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
 
     public Mono<ServerResponse> userView(ServerRequest request) {
-        Map<String, String> params = new HashMap<>();
-        return ServerResponse.ok().render("/templates/test", params);
+        Map<String, ?> params = new HashMap<>();
+        return ServerResponse.ok().render("/resources/templates/test.html", params);
     }
 }

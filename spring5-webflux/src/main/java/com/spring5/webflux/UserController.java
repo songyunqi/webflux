@@ -5,14 +5,18 @@
  */
 package com.spring5.webflux;
 
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
  * @author Yang
  */
-@Repository
-public interface UserReactiveRepository extends ReactiveCrudRepository<User, Long> {
+//@Controller
+public class UserController {
 
+    @RequestMapping("userView")
+    public String userView() {
+        return "test";
+    }
 }
