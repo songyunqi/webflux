@@ -30,7 +30,11 @@ public class Routes {
     public RouterFunction<?> routerFunction() {
         return route(GET("/api/user").and(accept(MediaType.APPLICATION_JSON)), userHandler::handleGetUsers)
                 .and(route(GET("/api/user/{id}").and(accept(MediaType.APPLICATION_JSON)), userHandler::handleGetUserById))
-                //.and(route(GET("/userView").and(accept(MediaType.TEXT_PLAIN)), userHandler::userView))
-                .andOther(resources("/**", new ClassPathResource("/static/")));
+                .and(route(GET("/userView").and(accept(MediaType.TEXT_PLAIN)), userHandler::userView))
+                .andOther(resources("/**", new ClassPathResource("/static/")))
+                .filter((request, next) -> {
+                    //Mono<?> response = next.handle(request);
+                    return next.handle(request);
+                });
     }
 }
