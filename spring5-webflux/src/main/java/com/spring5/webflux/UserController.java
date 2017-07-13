@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author Yang
  */
-//@Controller
+@Controller
 public class UserController {
 
-    @RequestMapping("userView")
-    public String userView() {
+    @RequestMapping("/userView")
+    public String index() {
         return "test";
     }
 }
