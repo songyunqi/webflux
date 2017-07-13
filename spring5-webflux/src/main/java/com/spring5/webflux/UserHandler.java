@@ -21,14 +21,14 @@ import reactor.core.publisher.Mono;
 public class UserHandler {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserReactiveRepository userRep;
 
     public Mono<ServerResponse> handleGetUsers(ServerRequest request) {
-        return ServerResponse.ok().body(userRepository.getUsers(), User.class);
+        return ServerResponse.ok().body(userRep.findAll(), User.class);
     }
 
     public Mono<ServerResponse> handleGetUserById(ServerRequest request) {
-        return userRepository.getUserById(request.pathVariable("id"))
+        return userRep.findOne(Long.valueOf(request.pathVariable("id")))
                 .flatMap(user -> ServerResponse.ok().body(Mono.just(user), User.class))
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
