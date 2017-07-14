@@ -9,6 +9,7 @@
         <module>spring5-web</module>
         <module>spring5-base</module>
         <module>spring5-webflux</module>
+        <module>spring5-boot-webflux</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

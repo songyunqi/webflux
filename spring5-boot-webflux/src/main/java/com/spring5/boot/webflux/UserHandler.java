@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.spring5.webflux;
+package com.spring5.boot.webflux;
 
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -22,20 +19,15 @@ import reactor.core.publisher.Mono;
 public class UserHandler {
 
     @Autowired
-    ReactiveCrudRepository<User, Long> userReactiveRepository;
+    private UserRepository userRepository;
 
     public Mono<ServerResponse> handleGetUsers(ServerRequest request) {
-        return ServerResponse.ok().body(userReactiveRepository.findAll(), User.class);
+        return ServerResponse.ok().body(userRepository.getUsers(), User.class);
     }
 
     public Mono<ServerResponse> handleGetUserById(ServerRequest request) {
-        return userReactiveRepository.findOne(Long.valueOf(request.pathVariable("id")))
+        return userRepository.getUserById(request.pathVariable("id"))
                 .flatMap(user -> ServerResponse.ok().body(Mono.just(user), User.class))
                 .switchIfEmpty(ServerResponse.notFound().build());
-    }
-
-    public Mono<ServerResponse> userView(ServerRequest request) {
-        Map<String, ?> params = new HashMap<>();
-        return ServerResponse.ok().render("/userView", params);
     }
 }
