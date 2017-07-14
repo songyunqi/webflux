@@ -30,4 +30,9 @@ public class UserHandler {
                 .flatMap(user -> ServerResponse.ok().body(Mono.just(user), User.class))
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
+
+    public Mono<ServerResponse> index(ServerRequest request) {
+        return ServerResponse.ok().render("index", new Object());
+    }
+
 }
