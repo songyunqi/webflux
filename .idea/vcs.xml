@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/spring5-base" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/spring5-boot-webflux" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/spring5-web" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/spring5-webflux" vcs="svn" />
+  </component>
+</project>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring5.iml" filepath="$PROJECT_DIR$/spring5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-base/spring5-base.iml" filepath="$PROJECT_DIR$/spring5-base/spring5-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-boot-webflux/spring5-boot-webflux.iml" filepath="$PROJECT_DIR$/spring5-boot-webflux/spring5-boot-webflux.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-web/spring5-web.iml" filepath="$PROJECT_DIR$/spring5-web/spring5-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-webflux/spring5-webflux.iml" filepath="$PROJECT_DIR$/spring5-webflux/spring5-webflux.iml" />
+    </modules>
+  </component>
+</project>
