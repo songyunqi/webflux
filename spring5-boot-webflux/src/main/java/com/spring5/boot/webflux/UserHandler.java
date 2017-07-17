@@ -5,6 +5,8 @@
  */
 package com.spring5.boot.webflux;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -32,7 +34,9 @@ public class UserHandler {
     }
 
     public Mono<ServerResponse> index(ServerRequest request) {
-        return ServerResponse.ok().render("/index", new Object());
+        Map<String,Object> params = new HashMap<>();
+        params.put("name", "hello world");
+        return ServerResponse.ok().render("/index", params);
     }
 
 }
