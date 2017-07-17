@@ -17,7 +17,7 @@ import java.io.IOException;
 public class FreeMarkerConfig {
     @Bean
     public ViewResolver viewResolver() {
-        FreeMarkerViewResolver resolver = new FreeMarkerViewResolver("", ".ftl");
+        FreeMarkerViewResolver resolver = new FreeMarkerViewResolver("", ".html");
         return resolver;
     }
 
