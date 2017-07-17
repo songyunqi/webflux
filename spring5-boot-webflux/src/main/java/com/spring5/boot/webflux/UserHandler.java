@@ -32,7 +32,7 @@ public class UserHandler {
     }
 
     public Mono<ServerResponse> index(ServerRequest request) {
-        return ServerResponse.ok().render("index", new Object());
+        return ServerResponse.ok().render("/index", new Object());
     }
 
 }
