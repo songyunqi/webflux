@@ -29,7 +29,7 @@ public class HttpServerConfig {
     public HttpServer httpServer(RouterFunction<?> routerFunction) {
         HttpHandler httpHandler = RouterFunctions.toHttpHandler(routerFunction);
         ReactorHttpHandlerAdapter adapter = new ReactorHttpHandlerAdapter(httpHandler);
-        HttpServer server = HttpServer.create("localhost", Integer.valueOf(environment.getProperty("server.port")));
+        HttpServer server = HttpServer.create(Integer.valueOf(environment.getProperty("server.port")));
         server.newHandler(adapter);
         return server;
     }
