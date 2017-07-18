@@ -5,10 +5,13 @@
  */
 package com.spring5.boot.webflux;
 
+import lombok.Data;
+
 /**
  *
  * @author Yang
  */
+@Data
 public class User {
 
     public User() {
@@ -18,23 +21,6 @@ public class User {
         this.id = id;
         this.user = user;
     }
-
     private Long id;
     private String user;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
 }
