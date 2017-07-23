@@ -24,16 +24,19 @@ public class UserHandler {
     private UserRepository userRepository;
 
     public Mono<ServerResponse> handleGetUsers(ServerRequest request) {
+        System.err.println("handleGetUsers");
         return ServerResponse.ok().body(userRepository.getUsers(), User.class);
     }
 
     public Mono<ServerResponse> handleGetUserById(ServerRequest request) {
+        System.err.println("handleGetUserById");
         return userRepository.getUserById(request.pathVariable("id"))
                 .flatMap(user -> ServerResponse.ok().body(Mono.just(user), User.class))
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
 
     public Mono<ServerResponse> index(ServerRequest request) {
+        System.err.println("index");
         Map<String,Object> params = new HashMap<>();
         params.put("name", "hello world");
         return ServerResponse.ok().render("/index", params);
