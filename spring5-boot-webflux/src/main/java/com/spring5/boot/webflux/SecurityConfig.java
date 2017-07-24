@@ -24,6 +24,7 @@ import reactor.core.publisher.Mono;
 @EnableWebFluxSecurity
 public class SecurityConfig {
 
+    //https://github.com/spring-projects/spring-security/blob/5.0.0.M2/samples/javaconfig/hellowebflux/src/main/java/sample/UserController.java
     @Bean
     SecurityWebFilterChain springWebFilterChain(HttpSecurity http) throws Exception {
         return http
