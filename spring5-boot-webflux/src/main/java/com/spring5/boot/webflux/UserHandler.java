@@ -37,9 +37,12 @@ public class UserHandler {
 
     public Mono<ServerResponse> index(ServerRequest request) {
         System.err.println("index");
-        Map<String,Object> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("name", "hello world");
         return ServerResponse.ok().render("/index", params);
     }
 
+//    public Mono<Map<String, String>> principal(Principal principal) {
+//        return principal(Mono.just(principal));
+//    }
 }

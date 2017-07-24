@@ -28,7 +28,8 @@ public class Routes {
     public RouterFunction<?> routerFunction() {
         return route(GET("/api/user").and(accept(MediaType.APPLICATION_JSON)), userHandler::handleGetUsers)
                 .and(route(GET("/api/user/{id}").and(accept(MediaType.APPLICATION_JSON)), userHandler::handleGetUserById))
-                .and(route(GET("/index").and(accept(MediaType.TEXT_PLAIN)), userHandler::index));
+                .and(route(GET("/index").and(accept(MediaType.TEXT_HTML)), userHandler::index));
+                //.and(route(GET("/principal").and(accept(MediaType.APPLICATION_JSON)), userHandler::principal));
 //                .filter((request, next) -> {
 //                    System.out.println("Before handler invocation: " + request.path());
 //                    return next.handle(request);
