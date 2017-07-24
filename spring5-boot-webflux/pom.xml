@@ -39,6 +39,27 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        
+        
+<!--        compile project(':spring-security-core')
+	compile project(':spring-security-config')
+	compile project(':spring-security-webflux')-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>5.0.0.M2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.0.0.M2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-webflux</artifactId>
+            <version>5.0.0.M2</version>
+        </dependency>
+
     </dependencies>
     
     <build>
