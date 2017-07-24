@@ -28,10 +28,10 @@ public class Routes {
     public RouterFunction<?> routerFunction() {
         return route(GET("/api/user").and(accept(MediaType.APPLICATION_JSON)), userHandler::handleGetUsers)
                 .and(route(GET("/api/user/{id}").and(accept(MediaType.APPLICATION_JSON)), userHandler::handleGetUserById))
-                .and(route(GET("/index").and(accept(MediaType.TEXT_PLAIN)), userHandler::index))
-                .filter((request, next) -> {
-                    System.out.println("Before handler invocation: " + request.path());
-                    return next.handle(request);
-                });
+                .and(route(GET("/index").and(accept(MediaType.TEXT_PLAIN)), userHandler::index));
+//                .filter((request, next) -> {
+//                    System.out.println("Before handler invocation: " + request.path());
+//                    return next.handle(request);
+//                });
     }
 }
