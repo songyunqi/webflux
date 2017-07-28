@@ -28,6 +28,7 @@ public class SecurityConfig {
     @Bean
     SecurityWebFilterChain springWebFilterChain(HttpSecurity http) throws Exception {
         return http
+                //.authorizeExchange().pathMatchers("/**").permitAll()  //不起作用，一样是html字符串输出
                 .authorizeExchange()
                 .pathMatchers("/index").hasRole("ADMIN")
                 .pathMatchers("/admin/**").hasRole("ADMIN")
