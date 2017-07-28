@@ -26,7 +26,7 @@ public class SecurityConfig {
 
     //https://github.com/spring-projects/spring-security/blob/5.0.0.M2/samples/javaconfig/hellowebflux/src/main/java/sample/UserController.java
     @Bean
-    SecurityWebFilterChain springWebFilterChain(HttpSecurity http) throws Exception {
+    SecurityWebFilterChain securityWebFilterChain(HttpSecurity http) throws Exception {
         return http
                 //.authorizeExchange().pathMatchers("/**").permitAll()  //不起作用，一样是html字符串输出
                 .authorizeExchange()
