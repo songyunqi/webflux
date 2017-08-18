@@ -6,7 +6,7 @@
 package com.spring5.base.rep;
 
 import com.spring5.base.domain.User;
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author Yang
  */
 @Repository
-public interface UserRep extends ReactiveCrudRepository<User,Long> {
+public interface UserRep extends JpaRepository<User,Long> {
 
 }
