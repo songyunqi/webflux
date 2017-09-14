@@ -42,7 +42,7 @@ public class SecurityConfig {
 
         HeaderBuilder headerBuilder = httpSecurity.headers();
 
-        headerBuilder.frameOptions().disable();
+        //headerBuilder.frameOptions().disable();
         
         headerBuilder.contentTypeOptions().disable();
 
