@@ -6,9 +6,11 @@
 package com.spring5.boot.webflux;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.core.userdetails.MapUserDetailsRepository;
 import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.config.web.server.HeaderBuilder;
 import org.springframework.security.config.web.server.HttpSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -27,15 +29,26 @@ public class SecurityConfig {
     //https://github.com/spring-projects/spring-security/blob/5.0.0.M2/samples/javaconfig/hellowebflux/src/main/java/sample/UserController.java
     @Bean
     SecurityWebFilterChain securityWebFilterChain(HttpSecurity http) throws Exception {
-        return http
-                //.authorizeExchange().pathMatchers("/**").permitAll()  //不起作用，一样是html字符串输出
+
+        SecurityWebFilterChain securityWebFilterChain;
+
+        HttpSecurity httpSecurity = http
                 .authorizeExchange()
-                .pathMatchers("/index").hasRole("ADMIN")
+                .pathMatchers(HttpMethod.GET, "/index").hasRole("ADMIN")
                 .pathMatchers("/admin/**").hasRole("ADMIN")
                 .pathMatchers("/users/{user}/**").access(this::currentUserMatchesPath)
                 .anyExchange().authenticated()
-                .and()
-                .build();
+                .and();
+
+        HeaderBuilder headerBuilder = httpSecurity.headers();
+
+        headerBuilder.frameOptions().disable();
+        
+        headerBuilder.contentTypeOptions().disable();
+
+        securityWebFilterChain = httpSecurity.build();
+
+        return securityWebFilterChain;
     }
 
     private Mono<AuthorizationDecision> currentUserMatchesPath(Mono<Authentication> authentication, AuthorizationContext context) {
