@@ -5,6 +5,7 @@
  */
 package com.spring5.jdbc;
 
+import com.spring5.jdbc.core.Page;
 import java.util.List;
 import java.util.Map;
 import org.apache.velocity.app.VelocityEngine;
@@ -72,5 +73,23 @@ public class JdbcSpi {
         String wrapSql = wrapQuery(sqlScript, model);
         List<?> list = jdbc.queryForList(wrapSql, wrapper);
         return list;
+    }
+
+    public Page page(String sqlScript, Map<String, Object> model, Page page, RowMapper wrapper) {
+        String wrapSql = wrapQuery(sqlScript, model);
+        long count = count(sqlScript, model);
+        List<?> list = jdbc.queryForList(wrapSql, wrapper);
+        page.setContent(list);
+        page.setTotalCount(count);
+        return page;
+    }
+
+    public Page page(String sqlScript, Map<String, Object> model, Page page, Class clazz) {
+        String wrapSql = wrapQuery(sqlScript, model);
+        long count = count(sqlScript, model);
+        List<?> list = jdbc.queryForList(wrapSql, clazz);
+        page.setContent(list);
+        page.setTotalCount(count);
+        return page;
     }
 }
