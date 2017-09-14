@@ -47,17 +47,14 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>5.0.0.M3</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>5.0.0.M3</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-webflux</artifactId>
-            <version>5.0.0.M3</version>
         </dependency>
         
         <!-- https://mvnrepository.com/artifact/org.synchronoss.cloud/nio-multipart-parser -->
