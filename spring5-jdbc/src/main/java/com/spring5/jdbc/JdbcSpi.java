@@ -27,8 +27,8 @@ public class JdbcSpi {
     @Autowired
     private VelocityEngine velocityEngine;
 
-    public String wrapQuery(String tmpVm, Map<String, Object> model) {
-        String sql = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, tmpVm, ENCODING_UTF8, model);
+    public String wrapQuery(String sqlScript, Map<String, Object> model) {
+        String sql = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, sqlScript, ENCODING_UTF8, model);
         return sql;
     }
 
