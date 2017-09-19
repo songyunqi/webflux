@@ -58,7 +58,7 @@ public class AuthServerConfigAdapter extends AuthorizationServerConfigurerAdapte
         endpoints.tokenServices(tokenServices);
     }
 
-    /*
+    
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory() // 使用in-memory存储
@@ -67,5 +67,10 @@ public class AuthServerConfigAdapter extends AuthorizationServerConfigurerAdapte
                 .authorizedGrantTypes("authorization_code") // 该client允许的授权类型
                 .scopes("app"); // 允许的授权范围
     }
-    */
+    
+//    @Override
+//    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+//        clients.jdbc(dataSource);
+//    
+//    }
 }
