@@ -5,6 +5,8 @@
  */
 package com.res;
 
+import java.util.UUID;
+
 /**
  *
  * @author Yang
@@ -27,8 +29,8 @@ public class Message {
         this.content = content;
     }
 
-    private String id;
-    
+    private String id = UUID.randomUUID().toString();
+
     private String content;
 
     public Message(String content) {
