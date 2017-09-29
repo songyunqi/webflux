@@ -8,7 +8,6 @@
     <modules>
         <module>spring5-web</module>
         <module>spring5-base</module>
-        <module>spring5-webflux</module>
         <module>spring5-boot-webflux</module>
         <module>spring5-kafka</module>
         <module>spring5-jdbc</module>
