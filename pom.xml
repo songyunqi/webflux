@@ -13,6 +13,7 @@
         <module>spring5-kafka</module>
         <module>spring5-jdbc</module>
         <module>spring-oauth2</module>
+        <module>spring-thrift</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
