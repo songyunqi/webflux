@@ -5,7 +5,6 @@
  */
 package com.spring5.activemq.out;
 
-import javax.jms.Destination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.annotation.JmsListener;
