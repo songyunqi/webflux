@@ -13,6 +13,7 @@
         <module>spring5-jdbc</module>
         <module>spring-oauth2</module>
         <module>spring-thrift</module>
+        <module>spring5-activeMQ</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
